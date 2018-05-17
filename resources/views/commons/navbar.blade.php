@@ -17,8 +17,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">my profile <span class="badge">{{ $count_microposts }}</span></a></li>
-                                <li role="presentation" class="{{ Request::is('users/*/favorites') ? 'active' : '' }}"><a href="{{ route('users.favorites', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favorites }}</span></a></li>
+                                <li role="presentation" class="{{ Request::is('users/' . Auth::user()) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => Auth::user()->id]) }}">my profile <span class="badge"></span></a></li>
+                                <li role="presentation" class="{{ Request::is('users/*/favorites') ? 'active' : '' }}"><a href="{{ route('users.favorites', ['id' => Auth::user()->id]) }}">Favorites <span class="badge"></span></a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>{!! link_to_route('logout.get', 'Logout') !!}</li>
                             </ul>
