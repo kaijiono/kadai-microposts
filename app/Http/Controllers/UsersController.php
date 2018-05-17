@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User; // 追加
+use App\Micropost; // 追加
 
 class UsersController extends Controller
 {
@@ -18,7 +19,7 @@ class UsersController extends Controller
     }
     public function show($id)
     {
-        $user = \Auth::user();
+        $user = User::find($id);
            $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
 
         $data = [
